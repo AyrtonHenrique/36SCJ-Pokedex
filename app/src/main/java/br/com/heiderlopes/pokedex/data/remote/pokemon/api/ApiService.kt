@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory.create
 
 object ApiService {
-    private var INSTANCE : PokemonService? = null
+     var INSTANCE : PokemonService? = null
 
     val instance: PokemonService?
 

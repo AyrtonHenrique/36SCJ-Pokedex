@@ -11,7 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class PokemonRepositoryImpl (
-    val pokemonService: PokemonService
+    val pokemonService: PokemonService?
 ): PokemonRepository {
     override fun pesquisar(
         id: String,
@@ -19,8 +19,8 @@ class PokemonRepositoryImpl (
         onError: (Throwable) -> Unit
     ) {
         pokemonService
-            .pesquisar(id)
-            .enqueue(object : Callback<PokemonResponseRequest> {
+            ?.pesquisar(id)
+            ?.enqueue(object : Callback<PokemonResponseRequest> {
                 override fun onFailure(call: Call<PokemonResponseRequest>, t: Throwable) {
                     onError(t)
                 }
